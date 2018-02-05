@@ -173,3 +173,37 @@ describe("SumPrime", function(){
 });
 
 
+describe("FizzBuzz", function(){
+
+    var tab = [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"];
+    it("should returns " + tab + " when n = 15", function() {
+        var result = Util.fizzBuzz(15);
+        expect(result).toEqual(tab);
+    });
+});
+
+describe("Cipher", function(){
+    var testCases = [
+		{
+            phrase : "Test Unitaire",
+            cipher : "Uftu!Vojubjsf"
+        },
+        {
+            phrase : "école ensiie",
+            cipher : "êdpmf!fotjjf"
+        },
+        {
+            phrase : "la france",
+            cipher : "mb!gsbodf"
+        }
+    ];
+	
+	testCases.forEach(function(testCase) {
+        it("should returns " + testCase.cipher + " when phrase = " + testCase.phrase, function() {
+            var result = Util.cipher(testCase.phrase);
+            expect(result).toEqual(testCase.cipher);
+        })
+    })
+});
+
+

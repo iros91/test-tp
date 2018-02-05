@@ -118,6 +118,26 @@ Util.sumPrime = function(n) {
  * @returns {array}
  */
 Util.fizzBuzz = function(n) {
+	var r, fizz, buzz, tab;
+	
+	tab = [];
+    for (var i = 1; i < n+1 ; ++i) {
+		r = "", fizz = false, buzz = false;
+		if (i%3 === 0)
+			fizz = true;
+		if (i%5 === 0)
+			buzz = true;
+		
+		if (fizz)
+			r = "Fizz";
+		if (buzz)
+			r += "Buzz";
+		if (!fizz && !buzz)
+			r = i;
+        tab.push(r);
+	}
+	
+return tab;
 
 };
 
@@ -131,5 +151,11 @@ Util.fizzBuzz = function(n) {
  * @returns {string}
  */
 Util.cipher = function (phrase) {
+	
+	var r = "";
+	for (var i = 0; i < phrase.length; ++i)
+		r += String.fromCharCode(phrase.charCodeAt(i)+1);
+	
+	return r;
 
 };
