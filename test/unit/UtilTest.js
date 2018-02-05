@@ -66,3 +66,41 @@ describe("Util - Arrangement", function() {
         })
     })
 });
+
+describe("Util - Combination", function() {
+    var testCases = [
+        {
+			r : 0,
+            n : 0,
+			combination : 1
+        },
+        {
+			r : 0,
+            n : 1,
+			combination : 1
+        },
+        {
+			r : 1,
+            n : 2,
+			combination : 2
+        },
+        {
+			r : 2,
+            n : 4,
+			combination : 6
+        },
+        {
+			r : 3,
+            n : 4,
+			combination : 4
+        }
+    ];
+    
+    testCases.forEach(function(testCase) {
+        it("should returns " + testCase.combination + " when n = " + testCase.n + " and r = " + testCase.r, function() {
+            var result = Util.combination(testCase.n, testCase.r);
+            expect(result).toEqual(testCase.combination);
+        })
+    })
+});
+
