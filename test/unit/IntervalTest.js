@@ -91,3 +91,46 @@ describe("Interval - union", function () {
         });
     });
 });
+
+describe("Interval - intersection", function () {
+    testedInterval = new Interval(10, 20);
+
+    [
+		{
+			interval : new Interval(9, 11),
+			result : new Interval(10,11)
+		},
+		
+		{
+			interval : new Interval(8, 9),
+			result : null
+		},
+	
+		{
+			interval : new Interval(14, 15),
+			result : new Interval(14,15)
+		},
+		
+		{
+			interval : new Interval(10, 20),
+			result : new Interval(10,20)
+		}
+    ].forEach(function (interval) {
+		var msg;
+		var expectNull = false;
+		if (interval.result === null) {
+			msg = "should returns null when doing intersection of " + testedInterval.toString() + " and " + interval.interval.toString();
+			expectNull = true;
+		} else
+			msg = "should returns Interval[" + interval.result.start + ", " + interval.result.end + "] when doing intersection of " + testedInterval.toString() + " and " + interval.interval.toString();
+        it(msg, function () {
+            var result = testedInterval.intersection(interval.interval);
+			if (expectNull)
+				expect(result).toEqual(interval.result);
+			else {
+				expect(result.start).toEqual(interval.result.start);
+				expect(result.end).toEqual(interval.result.end);
+			}
+        });
+    });
+});
