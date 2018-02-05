@@ -34,6 +34,10 @@ Util.factorial = function(n) {
  * @returns {number}
  */
 Util.arrangement = function(n, r) {
+	if (n - r === 0)
+		return -9999;
+	
+return Util.factorial(n) / Util.factorial(n - r);
 
 };
 
