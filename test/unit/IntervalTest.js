@@ -134,3 +134,37 @@ describe("Interval - intersection", function () {
         });
     });
 });
+
+describe("Interval - exclusion", function () {
+    testedInterval = new Interval(10, 20);
+
+    [
+		{
+			interval : new Interval(8, 12),
+			result : [new Interval(8,9), new Interval(13,20)]
+		},
+		
+		{
+			interval : new Interval(8, 9),
+			result : [new Interval(8,9), new Interval(10,20)]
+		},
+		
+		{
+			interval : new Interval(8, 15),
+			result : [new Interval(8,9), new Interval(16,20)]
+		},
+		
+		
+		{
+			interval : new Interval(10, 20),
+			result : []
+		}
+    ].forEach(function (interval) {
+		var msg="should returns Interval("+ interval.result + ") when doing intersection of " + testedInterval.toString() + " and " + interval.interval.toString();
+        it(msg, function () {
+            var result = testedInterval.exclusion(interval.interval);
+			expect(result).toEqual(interval.result);
+        });
+    });
+});
+
