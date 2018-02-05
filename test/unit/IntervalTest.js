@@ -59,10 +59,7 @@ describe("Interval - union", function () {
 			interval : new Interval(6, 13),
 			result : new Interval(6,20)
 		},
-		{
-			interval : new Interval(12, 21),
-			result : new Interval(10,21)
-		},
+		
 		{
 			interval : new Interval(8, 9),
 			result : [new Interval(8,9), testedInterval]
