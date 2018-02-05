@@ -104,3 +104,72 @@ describe("Util - Combination", function() {
     })
 });
 
+describe("IsPrime", function(){
+    var testCases = [
+        {
+            n : 0,
+            isPrime : false
+        },
+		{
+            n : 4,
+            isPrime : false
+        },
+        {
+            n : 7,
+            isPrime : true
+        },
+        {
+            n : 16,
+            isPrime : false
+        },
+        {
+            n : 31,
+            isPrime : true
+        }
+    ];
+
+    testCases.forEach(function(testCase) {
+        it("should returns " + testCase.isPrime + " when n = " + testCase.n, function() {
+            var result = Util.isPrime(testCase.n);
+            expect(result).toEqual(testCase.isPrime);
+        })
+    })
+});
+
+describe("SumPrime", function(){
+    var testCases = [
+		{
+            n : 1,
+            sumPrime : -9999
+        },
+        {
+            n : 4,
+            sumPrime : 5
+        },
+        {
+            n : 12,
+            sumPrime : 28
+        },
+        {
+            n : 16,
+            sumPrime : 41
+        },
+        {
+            n : 20,
+            sumPrime : 77
+        },
+        {
+            n : 35,
+            sumPrime : 160
+        }
+    ];
+	
+	testCases.forEach(function(testCase) {
+        it("should returns " + testCase.sumPrime + " when n = " + testCase.n, function() {
+            var result = Util.sumPrime(testCase.n);
+            expect(result).toEqual(testCase.sumPrime);
+        })
+    })
+});
+
+

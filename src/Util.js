@@ -67,6 +67,16 @@ Util.combination = function(n, r) {
  * @returns {boolean}
  */
 Util.isPrime = function(n) {
+	if(n < 2)
+        return false;
+    if(n == 2)
+        return true;
+	
+    for(var i = 2; i < n; ++i) {
+        if(n % i === 0)
+            return false;
+    }
+	return true;
 
 };
 
@@ -81,6 +91,17 @@ Util.isPrime = function(n) {
  * @returns {number}
  */
 Util.sumPrime = function(n) {
+	
+	var r = 0;
+	if (n < 2)
+		return -9999;
+
+    for (var i = 2; i < n; ++i) {
+        if(Util.isPrime(i))
+            r += i;
+    }
+
+	return r;
 
 };
 
